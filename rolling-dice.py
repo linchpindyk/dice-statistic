@@ -1,18 +1,31 @@
+from __future__ import division
 import random
 import numpy
 from collections import Counter
 
-def rolling_dice():
+def roll_dice():
     return random.randrange(1,7)
 
-def extract_data():
+def get_probability(num_repeat):
     array = []
-    for x in range(100):
-        rolled_number = rolling_dice()
+    for x in range(int(num_repeat)):
+        rolled_number = roll_dice()
         array.append(rolled_number)
 
-    temp = Counter(array)
-    return('...temp: ', temp)
+    statistic = Counter(array)
 
+    print('``````````````rolling die``````````````')
+    print('`')
 
-extract_data()
+    for y in range(1,7):
+        probability = (int(statistic[y]) / int(num_repeat)) * 100
+        print('`   Probability of getting %s: %s%%' % (y, round(probability, 1)))
+
+    print('`')
+    print('```````````````end result``````````````')
+
+def execute_program():
+    times_rolled = input('How many times do you want to roll? ')
+    get_probability(times_rolled)
+
+execute_program()
