@@ -1,4 +1,6 @@
-def print_hello():
-    print 'hello world'
+import random
 
-print_hello()
+def rolling_dice():
+    print random.randrange(1,7)
+
+rolling_dice()
