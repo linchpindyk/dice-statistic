@@ -1,6 +1,18 @@
 import random
+import numpy
+from collections import Counter
 
 def rolling_dice():
-    print random.randrange(1,7)
+    return random.randrange(1,7)
 
-rolling_dice()
+def extract_data():
+    array = []
+    for x in range(100):
+        rolled_number = rolling_dice()
+        array.append(rolled_number)
+
+    temp = Counter(array)
+    return('...temp: ', temp)
+
+
+extract_data()
